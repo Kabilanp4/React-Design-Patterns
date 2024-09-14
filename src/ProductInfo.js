@@ -1,4 +1,4 @@
-export const LargeProductListItem = ({ product }) => {
+export const ProductInfo = ({ product }) => {
   const { name, price, description, rating } = product;
   return (
     <>

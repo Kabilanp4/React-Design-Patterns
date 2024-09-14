@@ -1,6 +1,6 @@
-export const LargePersonListItem = ({ person }) => {
-  const { name, age, hairColor, hobbies } = person;
-  return (
+export const UserInfo = ({ user }) => {
+  const { name, age, hairColor, hobbies } = user || {};
+  return user ? (
     <>
       <h3>{name}</h3>
       <p>Age: {age} years</p>
@@ -12,5 +12,7 @@ export const LargePersonListItem = ({ person }) => {
         ))}
       </ul>
     </>
+  ) : (
+    <p>Loading ..</p>
   );
 };
