@@ -1,17 +1,34 @@
-import { SplitScreen } from "./SplitScreen";
+import { DangerButton, SuccessButton } from "./partiallyApply";
+import { RecursiveComponent } from "./RecursiveComponent";
 
-const LeftHandComponent = ({ name }) => {
-  return <h1 style={{ backgroundColor: "green" }}>{name}</h1>;
-};
-const RightHandComponent = ({ name }) => {
-  return <h1 style={{ backgroundColor: "yellow" }}>{name}</h1>;
+const nestedObject = {
+  a: 1,
+  b: {
+    b1: 4,
+    b2: {
+      b23: "Hello",
+    },
+    b3: {
+      b31: {
+        message: "Hi",
+      },
+      b32: {
+        message: "Hi",
+      },
+    },
+  },
+  c: {
+    c1: 2,
+    c2: 3,
+  },
 };
 function App() {
   return (
-    <SplitScreen leftWeight={1} rightWeight={1}>
-      <LeftHandComponent name="React" />
-      <RightHandComponent name="Angular" />
-    </SplitScreen>
+    <>
+      <RecursiveComponent data={nestedObject} />
+      <DangerButton text="Danger" />
+      <SuccessButton text="Success" />
+    </>
   );
 }
 
